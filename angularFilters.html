@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Tutorial</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  </head>
+  <body>
+    <h3>Testing out what this is in an anglar app</h3>
+    <p>
+      {{this}}
+    </p>
+    <p>
+      This gives us a better definition of the context of Angular expressions:
+    </p>
+    <p>
+      JavaScript expressions are evaluated against the global window. In Angular, expressions are evaluated against a scope object.
+    </p>
+
+    <h3>Filtering to Currency</h3>
+    <p>
+      In USD:
+    </p>
+    <p>
+      {{3.14159265359 | currency}}
+    </p>
+    <p>
+      In Euros:
+    </p>
+    <p>
+      {{3.14159265359 | currency: "€"}}
+    </p>
+
+    <h3>Filtering to uppercase and lowercase</h3>
+    <h4>Please Say Something</h4>
+    <input type="text" ng-model="saying">
+    <h5>Yelling: {{saying | uppercase}}</h5>
+    <h5>Whispering: {{saying | lowercase}}</h5>
+
+    <h3>Now let's round some numbers</h3>
+    <p>
+      Using number:3 to round to three decimal places: {{3.14159265359 | number:3}}
+    </p>
+    <p>
+      Using number:6 to round to six decimal places: {{3.14159265359 | number:6}}
+    </p>
+    <p>
+      Using number:1 to round to one decimal place: {{3.14159265359 | number:1}}
+    </p>
+
+    <h3>Let's let the user decide how many decimals to round to</h3>
+    How many digits of pi do you want?
+    <select ng-model="digit" ng-init="digit = '2'">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+    <p>
+      <ng-pluralize count="digit"
+        when="{'1': 'Here you go! The first digit of pi!',
+              'other': 'Here you go! The first {} digits of pi!'}">
+      </ng-pluralize>
+    </p>
+    <p>
+      {{3.14159265359 | number:digit}}
+    </p>
+
+    <h3>Now for a Super Useful Tip Calculator</h3>
+    How much did your meal cost?
+    <input type="number" ng-model="cost">
+    <p>
+      How much do you want to tip?
+    </p>
+    <select ng-model="percentage">
+      <option value=".15">15%</option>
+      <option value=".20">20%</option>
+      <option value=".25">25%</option>
+    </select>
+    <h5>Subtotal: {{cost | currency}}</h5>
+    <h5>Tip: {{cost * percentage | currency}}</h5>
+
+    <h3>Last but not least, let's make a short little Mad Libs App!</h3>
+    <h4>Please fill out the following!</h4>
+    <form class="madlibs">
+      <input type="text" ng-model="boyName" placeholder="Enter a boy's name...">
+      <input type="text" ng-model="adj" placeholder="Enter an adjective">
+      <input type="text" ng-model="pNoun1" placeholder="Enter a plural nown...">
+      <input type="text" ng-model="pNoun2" placeholder="Enter a plural nown...">
+      <input type="text" ng-model="insect" placeholder="Enter an insect, plural...">
+      <input type="text" ng-model="pNoun3" placeholder="Enter a plural nown...">
+      <input type="text" ng-model="verb" placeholder="Enter a verb ending in 's'">
+    </form>
+    <h4>Mad with the Libs</h4>
+    <h3>I'm in love with <span>{{boyName | uppercase}}</span>. He's so <span>{{adj | uppercase}}</span>! He has big flat <span>{{pNoun1 | uppercase}}</span>, and when our <span>{{pNoun2 | uppercase}}</span> meet, I get <span>{{insect | uppercase}}</span> in my stomach. I've fallen for him like a ton of <span>{{pNoun3 | uppercase}}</span>, and he <span>{{verb | uppercase}}</span> for me, too. But I think he's got another girlfriend. What should I do?</h3>
+  </body>
+</html>
