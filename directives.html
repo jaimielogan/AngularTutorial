@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Tutorial</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  </head>
+  <body ng-init="names=['Harry', 'Ron', 'Hermione', 'Sirius', 'Hedwig', 'Tonks']; symbols=['&#9824', '&#9827', '&#9829', '&#9830']; numbers=[1, 1, 2, 5, 6, 9, 9, 9]">
+
+    <h3>Iterating over an array of names using ng-repeat='name in names and symbol in symbols'</h3>
+    <h4>This example has the ng-repeat on the li element</h4>
+    <ul>
+      <li ng-repeat="name in names">
+        {{name}}
+      </li>
+    </ul>
+    <ul>
+      <li ng-repeat="symbol in symbols">
+        {{symbol}}
+      </li>
+    </ul>
+
+    <h4>This example has the ng-repeat on the ul element</h4>
+    <ul ng-repeat="name in names">
+      <li>{{name}}</li>
+    </ul>
+    <ul ng-repeat="symbol in symbols">
+      <li>{{symbol}}</li>
+    </ul>
+
+    <h4>What does angular do with duplicate data?</h4>
+    <ul>
+      <li ng-repeat="number in numbers track by $index">
+        {{number}}
+      </li>
+    </ul>
+
+    <!-- Show and Hide -->
+    <h4>ng-show and ng-hide directives</h4>
+    <p>
+      When the element gets hidden, Angular adds a display: none to that respective elements style
+    </p>
+    <div ng-show='3 + 4 == 5'>
+      3 + 4 isn't 5, don't show
+    </div>
+
+    <div ng-show='3 + 4 == 7'>
+      3 + 4 is 7, do show
+    </div>
+
+    <div ng-hide='3 + 4 == 5'>
+        3 + 4 isn't 5, don't hide
+    </div>
+
+    <div ng-hide='3 + 4 == 7'>
+      3 + 4 is 7, do hide
+    </div>
+
+  </body>
+</html>

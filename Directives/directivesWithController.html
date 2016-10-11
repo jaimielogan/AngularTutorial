@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Tutorial</title>
+    <link rel="stylesheet" href="directiveMain.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div ng-controller="MainController">
+      <h4>More examples of iterations</h4>
+      <h5>element in first where first is [1,2,3,4,5,6,7,8,9]</h5>
+      <ul>
+        <li ng-repeat="element in first">
+          {{ element }}
+        </li>
+      </ul>
+
+      <h5>user in second where second is [
+        {name:"mike", age:23},
+        {name:"andy", age:34},
+        {name:"reid", age:45},
+        {name:"reid", age:45}
+        ]. Print user.name and user.age
+      </h5>
+      <ul>
+        <li ng-repeat="user in second">
+          <strong>{{user.name}}</strong>: {{user.age}}
+        </li>
+      </ul>
+
+      <h5>attr in third where third is {name: "mike", age: 35, title: "Mr."}</h5>
+      <ul>
+        <li ng-repeat="attr in third">
+          {{ attr}}
+        </li>
+      </ul>
+
+
+      <h4>Let's make a password validator using ng-show and ng-hide if the password is not at least 6 characters long</h4>
+      <h5>Sign Up Page</h5>
+      <input type="password" ng-model="password" name="password" ng-class="valid() {'green': password.length > 6, 'red': password.length < 6}" ng-init="password = ''">
+      <p ng-class="{'green': password.length > 6, 'red': password.length < 6}">
+        Your password is {{password.length}} characters
+      </p>
+
+      <h5>One option is to create a function valid() that will be called as the password is being entered</h5>
+      <div ng-hide="isValid">
+        <p>
+          Password is invalid!
+        </p>
+      </div>
+      <div ng-show="isValid">
+        <input type="submit" name="name" value="Sign Up!">
+      </div>
+
+      <h5>Or you can just check against password.length. They will both work the same!</h5>
+      <div ng-hide="password.length > 6">
+        <p>
+          Password is invalid
+        </p>
+      </div>
+      <div ng-show="password.length > 6">
+        <input type="submit" name="name" value="Sign Up!">
+      </div>
+
+    </div>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="directivesController.js"></script>
+  </body>
+</html>
