@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Tutorial</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body ng-controller="MainController">
+
+    <h3>The number is {{view.number}}</h3>
+    <button ng-click="pickRandomNumber()">Pick Random Number</button>
+
+    <h3>Word Reverser</h3>
+    <input type="text" ng-model="view.word">
+    <p>
+      Your word is {{view.word}}
+    </p>
+    <button ng-click="reverse(view.word)">Reverse!</button>
+
+    <h3>Ping Pong Score Keeper</h3>
+    <div class="divbox" ng-mouseenter="addScore1()">
+      <h4>Player 1</h4>
+      <h1>
+        {{view.enterCount1}}
+      </h1>
+      <p ng-show="view.enterCount1 + view.enterCount2 % 2 === 0">
+        Serving!
+      </p>
+    </div>
+    <div class="divbox" ng-mouseenter="addScore2()">
+      <h4>Player 2</h4>
+      <h1>
+        {{view.enterCount2}}
+      </h1>
+      <p ng-show="view.enterCount1 + view.enterCount2 % 2 !== 0">
+        Serving!
+      </p>
+    </div>
+    <button ng-click="reset()">Reset</button>
+
+    <h3>Random Color Generator</h3>
+    <div class="divbox" ng-mouseenter="divStyle={'background-color': randomColor()}; randomColor()" ng-style="divStyle">
+    </div>
+    <button ng-click="replay()">Replay Colors</button>
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

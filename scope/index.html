@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Tutorial</title>
+  </head>
+  <body>
+
+    <div ng-app="myApp">
+      <div>
+        <input type="text" ng-model="view.info">
+        {{view.info}}
+      </div>
+      <div ng-controller="ScopeController">
+        <input type="text" ng-model="view.info">
+        {{view.info}}
+      </div>
+    </div>
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
