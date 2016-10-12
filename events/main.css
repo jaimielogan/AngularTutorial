@@ -1,4 +1,24 @@
-.divbox {
+.divboxPing {
+  width: 200px;
+  height: 200px;
+  border-style: solid;
+  border-width: 3px;
+  text-align: center;
+  background-color: lightblue;
+  color: white;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+
+.green {
+  background-color: green;
+  color: white;
+}
+
+.divbox{
   width: 200px;
   height: 200px;
   border-style: solid;
