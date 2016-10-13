@@ -1,0 +1,15 @@
+.valid{
+  color: green;
+}
+
+.correct{
+  color:green;
+}
+
+.invalid{
+  color: red;
+}
+
+.errorMessage{
+  color: red;
+}

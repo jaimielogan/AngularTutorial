@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Tutorial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body ng-controller="MainController">
+
+    <!-- Simple Form -->
+    <h3>Simple User Input</h3>
+    <form action="#" name="form" ng-submit="submit(form.$valid)">
+      <div class="form-group" ng-class="{'has-error': form.firstname.$invalid && form.firstname.$dirty, 'has-success': form.firstname.$valid && form.firstname.$dirty}">
+        <label class="control-label" for="firstname">First Name</label>
+        <input type="text" class="form-control" name="firstname" id="firstname" ng-model="user.firstname" required>
+      </div>
+      <div class="form-group" ng-class="{'has-error': form.lastname.$invalid && form.lastname.$dirty, 'has-success': form.lastname.$valid && form.lastname.$dirty}">
+        <label class="control-label" for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" ng-model="user.lastname" required>
+      </div>
+
+      <input type="button" class="btn btn-primary" value="Submit!">
+    </form>
+
+    <!-- Quiz Form -->
+    <h3>Quiz Form</h3>
+    <form name="quizForm" ng-submit="submit(quizForm.$valid)">
+      <label for="question">Question</label>
+      <input type="text" name="question" id="question" ng-model="quiz.question" ng-class="{'valid': quizForm.question.$valid}" class="form-control" required>
+      <p ng-show="quizForm.question.$invalid">
+        Please enter a valid question
+      </p>
+      <label for="answer">Answer</label>
+      <input type="text" name="answer" id="answer"
+      ng-model="quiz.answer" class="form-control" ng-class="{'correct': quizForm.answer.$valid && quizForm.answer.$dirty}" required ng-minlength="4" ng-maxlength="20">
+    </form>
+
+    <!-- Another User Form -->
+    <h3>Another user form with messages and styling</h3>
+    <h4>User Submitted: {{users}}</h4>
+    <form action="#" name="userForm" ng-submit="submitUser()">
+
+      <!-- Username -->
+      <div class="form-group" ng-class="{'has-success': userForm.username.$valid && userForm.username.$dirty, 'has-error': userForm.username.$invalid && userForm.username.$dirty}">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-control" ng-model="user.username" ng-pattern="/^\w{1,9}$/" required>
+        <p ng-show="userForm.username.$invalid && userForm.username.$dirty" class="invalid">
+          Please enter a valid username
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group" ng-class="{'has-success': userForm.password.$valid && userForm.password.$dirty, 'has-error': userForm.password.$invalid && userForm.password.$dirty}">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" ng-model="user.password" ng-pattern="/^\w{1,9}$/" ng-class="{'has-success': userForm.password.$valid && userForm.password.$dirty, 'has-error': userForm.password.$invalid && userForm.password.$dirty}" required>
+        <p ng-show="userForm.password.$invalid && userForm.password.$dirty" class="invalid">
+          Please enter a valid password
+        </p>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group" ng-class="{'has-success': userForm.email.$valid && userForm.email.$dirty, 'has-error': userForm.email.$invalid && userForm.email.$dirty}">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" ng-model="user.email" ng-class="{'has-success': userForm.email.$valid && userForm.email.$dirty, 'has-error': userForm.email.$invalid && userForm.email.$dirty}" required>
+        <p ng-show="userForm.email.$invalid && userForm.email.$dirty" class="invalid">
+          Please enter a valid email address
+        </p>
+      </div>
+
+      <!-- Zip Code -->
+      <div class="form-group" ng-class="{'has-success': userForm.zipcode.$valid && userForm.zipcode.$dirty, 'has-error': userForm.zipcode.$invalid && userForm.zipcode.$dirty}">
+        <label for="zipcode">Zip (5 Digits)</label>
+        <input type="number" name="zipcode" id="zipcode" class="form-control" ng-model="user.zipcode" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" ng-class="{'has-success': userForm.zipcode.$valid && userForm.zipcode.$dirty, 'has-error': userForm.zipcode.$invalid && userForm.zipcode.$dirty}" required>
+        <p ng-show="userForm.zipcode.$invalid && userForm.zipcode.$dirty" class="invalid">
+          Please enter a valid zipcode
+        </p>
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="userForm.$invalid">
+
+    </form>
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
