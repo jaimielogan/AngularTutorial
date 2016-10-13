@@ -39,7 +39,7 @@
 
     <!-- Another User Form -->
     <h3>Another user form with messages and styling</h3>
-    <h4>User Submitted: {{users}}</h4>
+    <h4>User Submitted:{{users}}</h4>
     <form action="#" name="userForm" ng-submit="submitUser()">
 
       <!-- Username -->
@@ -49,8 +49,13 @@
         <p ng-show="userForm.username.$invalid && userForm.username.$dirty" class="invalid">
           Please enter a valid username
         </p>
-      </div>
 
+        <!-- ng messages errors -->
+        <div class="help-block" ng-messages="userForm.username.$error" ng-show="userForm.username.$touched">
+          <div ng-messages-include="messages.html"></div>
+        </div>
+
+      </div>
       <!-- Password -->
       <div class="form-group" ng-class="{'has-success': userForm.password.$valid && userForm.password.$dirty, 'has-error': userForm.password.$invalid && userForm.password.$dirty}">
         <label for="password">Password</label>
@@ -58,6 +63,11 @@
         <p ng-show="userForm.password.$invalid && userForm.password.$dirty" class="invalid">
           Please enter a valid password
         </p>
+
+        <!-- ng messages errors -->
+        <div class="help-block" ng-messages="userForm.password.$error" ng-show="userForm.password.$touched">
+          <div ng-messages-include="messages.html"></div>
+        </div>
       </div>
 
       <!-- Email -->
@@ -67,6 +77,11 @@
         <p ng-show="userForm.email.$invalid && userForm.email.$dirty" class="invalid">
           Please enter a valid email address
         </p>
+
+        <!-- ng messages errors -->
+        <div class="help-block" ng-messages="userForm.email.$error" ng-show="userForm.email.$touched">
+          <div ng-messages-include="./messages.html"></div>
+        </div>
       </div>
 
       <!-- Zip Code -->
@@ -76,6 +91,11 @@
         <p ng-show="userForm.zipcode.$invalid && userForm.zipcode.$dirty" class="invalid">
           Please enter a valid zipcode
         </p>
+
+        <!-- ng messages errors -->
+        <div class="help-block" ng-messages="userForm.zipcode.$error" ng-show="userForm.zipcode.$touched">
+          <div ng-messages-include="messages.html"></div>
+        </div>
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="userForm.$invalid">
@@ -84,6 +104,7 @@
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
