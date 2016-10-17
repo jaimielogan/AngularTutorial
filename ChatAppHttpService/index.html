@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+  <head>
+    <meta charset="utf-8">
+    <title>HTTP Chat App</title>
+  </head>
+  <body ng-controller="MainController">
+    <h3>HTTP Get Call</h3>
+
+    <form name="form" ng-submit="submitQuote()">
+      Name: <input name="name" ng-model="view.name">
+      Quote: <input name="quote" ng-model="view.quote">
+      <input type="submit" name="submit" value="Post">
+    </form>
+
+    <p ng-repeat="message in view.messages">
+      {{message.name}}:
+      {{message.content}}
+    </p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
