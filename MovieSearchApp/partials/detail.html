@@ -1,0 +1,32 @@
+<h1>View reached?</h1>
+
+<p>
+  {{view.detail}}
+</p>
+
+<div class="movieDetail" ng-repeat="detail in view.detail">
+  <img src="{{detail.Poster}}" alt="Movie Poster" class="poster" />
+  <h1>{{detail.Title}}</h1>
+  <p class="starring">
+    Starring: {{detail.Actors}}
+  </p>
+  <p class="plot">
+    {{detail.plot}}
+  </p>
+  <h3>Additional Details</h3>
+  <h5><strong>Awards</strong></h5>
+  <h5>{{detail.Awards}}</h5>
+  <h5><strong>Director</strong></h5>
+  <h5>{{detail.Director}}</h5>
+  <h5><strong>Rated</strong></h5>
+  <h5>{{detail.Rated}}</h5>
+  <h5><strong>Released</strong></h5>
+  <h5>{{detail.Released}}</h5>
+  <h5><strong>Runtime</strong></h5>
+  <h5>{{detail.Runtime}}</h5>
+  <h5><strong>IMDB Rating</strong></h5>
+  <h5>{{detail.imbdRating}}</h5>
+  <h5><strong>Rotten Tomatoes Rating</strong></h5>
+  <h5>{{detail.tomatoRating}}</h5>
+
+</div>
