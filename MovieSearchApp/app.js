@@ -1,7 +1,8 @@
-var movieSearch = angular.module('movieSearch', ['ngRoute']);
+angular.module('movieSearch', ['ngRoute']);
 
 // Routing
-movieSearch.config(function($routeProvider, $locationProvider){
+angular.module('movieSearch')
+.config(function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
     templateUrl: 'partials/movies.html',
@@ -15,8 +16,10 @@ movieSearch.config(function($routeProvider, $locationProvider){
 });
 
 // Controllers
-movieSearch.controller('MovieController', function($scope, $http, $route){
+angular.module('movieSearch')
+.controller('MovieController', function($scope, $http, $route){
   $scope.view = {};
+  // Would be pulled into a SearchMovie IMDB Service
   $scope.searchMovie = function(){
     var input = $scope.view.searchText;
     var url = 'http://www.omdbapi.com/?s=' + input;
@@ -30,7 +33,8 @@ movieSearch.controller('MovieController', function($scope, $http, $route){
   };
 });
 
-movieSearch.controller('ShowController', function($scope, $http, $route){
+angular.module('movieSearch')
+.controller('ShowController', function($scope, $http, $route){
   $scope.view = {};
   var movieID = $route.current.params.imdbID;
   var url = 'http://www.omdbapi.com/?i=' + movieID + '&tomatoes=true';

@@ -18,7 +18,6 @@ chatApp.controller('MainController', function($scope, $http){
         content: $scope.view.quote
       }
     };
-
     $http.post('https://messagehttpservice.herokuapp.com/messages', data);
   };
 });
