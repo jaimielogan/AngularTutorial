@@ -1,0 +1,29 @@
+.add{
+  margin-top: 2%;
+}
+
+.input{
+  width: 70%;
+  margin-left: 15%
+}
+
+.item{
+  display: inline-block;
+}
+
+.items{
+  text-align: center;
+}
+
+.header{
+  text-align: center;
+}
+
+.formClass{
+  text-align: center;
+  border-bottom: 1px solid lightgrey;
+}
+
+.editForm{
+  margin: 1% 0 1% 0; 
+}
