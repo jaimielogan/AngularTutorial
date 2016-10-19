@@ -1,0 +1,19 @@
+<h1>Pokemon Directive</h1>
+<h3>Woo</h3>
+
+<p>
+  {{view.results}}
+</p>
+
+<div ng-repeat="result in view.results">
+  <h3>
+    PokeName: {{result.data.name}}
+  </h3>
+
+  <h4>
+    Abilities:
+  </h4>
+  <p ng-repeat="ability in result.data.abilities">
+    {{ability.name}}
+  </p>
+</div>
