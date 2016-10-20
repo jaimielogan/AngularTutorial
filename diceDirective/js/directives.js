@@ -17,6 +17,7 @@ angular.module('diceItemDirective', [])
       element.on('click', function(){
         scope.view.randomNumber = scope.RandomNumber();
         console.log(scope.view.randomNumber);
+        scope.$apply();
       });
     }
   };
